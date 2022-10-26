@@ -36,9 +36,17 @@ layout = dbc.Col([
                         dbc.Button(color='danger', id='open-novo-despesa',
                                 children=['- Despesa'])
                     ], width=6)
-                ])
-            ])
+                ]),
+    # Seção NAV ---------------------------
+                html.Hr(),
+                dbc.Nav(
+                [
+                    dbc.NavLink("Dashboard", href='/dashboards', active='exact'),
+                    dbc.NavLink("Extratos", href='/extratos', active='exact'),
+                ], vertical=True, pills=True, id='nav_buttons', style={"margin-bottom": "50px"}),   
 
+
+            ])
 
 
 
