@@ -37,8 +37,26 @@ layout = dbc.Col([
                                 children=['- Despesa'])
                     ], width=6)
                 ]),
+
+                # Modal receita
+                dbc.Modal([
+                    dbc.ModalHeader(dbc.ModalTitle('Adicionar receita')),
+                    dbc.ModalBody([
+
+                    ])
+                ], id='modal-novo-receita'),
+
+                # Modal despesa
+                dbc.Modal([
+                    dbc.ModalHeader(dbc.ModalTitle('Adicionar despesa')),
+                    dbc.ModalBody([
+
+                    ])
+                ], id='modal-novo-despesa'),
+
+
     # Seção NAV ---------------------------
-                html.Hr(),
+                html.Hr(), # quebra de linha
                 dbc.Nav(
                 [
                     dbc.NavLink("Dashboard", href='/dashboards', active='exact'),
@@ -46,10 +64,28 @@ layout = dbc.Col([
                 ], vertical=True, pills=True, id='nav_buttons', style={"margin-bottom": "50px"}),   
 
 
-            ])
+            ], id='sidebar_completa')
 
 
 
 
 # =========  Callbacks  =========== #
 # Pop-up receita
+@app.callback(
+    Output('modal-novo-receita', 'is_open'),
+    Input('open-novo-receita', 'n_clicks'),
+    State('modal-novo-receita', 'is_open')
+)
+def toggle_modal(n1, is_open):
+    if n1:
+        return not is_open
+
+# Pop-up despesa
+@app.callback(
+    Output('modal-novo-despesa', 'is_open'),
+    Input('open-novo-despesa', 'n_clicks'),
+    State('modal-novo-despesa', 'is_open')
+)
+def toggle_modal(n1, is_open):
+    if n1:
+        return not is_open
