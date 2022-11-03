@@ -81,7 +81,7 @@ layout = dbc.Col([
                                 html.Label('Categoria da receita'),
                                 dbc.Select(id='select_receita', 
                                 options=[{'label': i, 'value': i} for i in cat_receita], 
-                                value=[])
+                                value=cat_receita[0])
                             ], width=4)
                         ], style={'margin-top': '25px'}),
 
@@ -157,8 +157,9 @@ layout = dbc.Col([
                             dbc.Col([
                                 dbc.Label("Extras"),
                                 dbc.Checklist(
-                                    options=[],
-                                    value=[],
+                                    options=[{'label': 'Foi recebida', 'value': 1},
+                                    {'label': "Despesa recorrente", 'value': 2}],
+                                    value=[1],
                                     id='switches-input-despesa',
                                     switch=True
                                 )
@@ -168,7 +169,7 @@ layout = dbc.Col([
                                 html.Label('Categoria da despesa'),
                                 dbc.Select(id='select_despesa', 
                                 options=[{'label': i, 'value': i} for i in cat_despesa], 
-                                value=[])
+                                value=cat_despesa[0])
                             ], width=4)
                         ], style={'margin-top': '25px'}),
 

@@ -24,8 +24,8 @@ else:
 # dataframes das categorias de receita e despesa -------------------------------------------------
 
 if ('df_cat_receita.csv' in os.listdir()) and ('df_cat_despesa.csv' in os.listdir()):
-    df_cat_receita = pd.read_csv('df_despesas.csv', index_col=0, parse_dates=True)
-    df_cat_despesa = pd.read_csv('df_receitas.csv', index_col=0, parse_dates=True)
+    df_cat_receita = pd.read_csv('df_cat_receita.csv', index_col=0, parse_dates=True)
+    df_cat_despesa = pd.read_csv('df_cat_despesa.csv', index_col=0, parse_dates=True)
     cat_receita = df_cat_receita.values.tolist()
     cat_despesa = df_cat_despesa.values.tolist()
 
